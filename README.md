@@ -21,19 +21,15 @@ Pour accéder aux jeux et lancer le launcher, suivez ces étapes simples :
 
 1.  Clonez ce repository sur votre machine locale en utilisant la commande suivante :
 
-bash
-
-Copy code
-
-`git clone https://github.com/stanthblt/java-minigames` 
+```bash
+git clone https://github.com/stanthblt/java-minigames
+```
 
 2.  Accédez au répertoire du launcher en utilisant la commande :
 
-bash
-
-Copy code
-
-`cd java-minigames` 
+```bash
+cd java-minigames
+```
 
 ## Jeux Disponibles
 
@@ -92,9 +88,8 @@ Copy code
 
 Pour lancer le launcher et accéder au menu des jeux, exécutez la commande suivante à partir du répertoire racine du projet :
 
-bash
-
-Copy code
+```bash
+```
 
 ## Contact
 
