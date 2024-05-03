@@ -1,15 +1,15 @@
 
 # Launcher de Jeux Java avec Swing
 
-Bienvenue dans notre projet de création d'une application regroupant plusieurs mini-jeux développés en Java avec l'utilisation de Swing pour l'interface graphique ! Chaque jeu offre une expérience unique avec une difficulté spécifique et rapporte un nombre de points différent.
+Bienvenue dans notre projet de création d'une application regroupant plusieurs mini-jeux développés en Java avec l'utilisation de Swing pour l'interface graphique ! Chaque jeu offre une expérience unique avec une difficulté spécifique et rapporte un nombre de points différent. 🎮🚀
 
-L'objectif de ce projet était de développer nos compétences en programmation Java tout en créant des jeux divertissants et interactifs. Chaque jeu a été conçu avec soin par notre équipe pour offrir aux joueurs une expérience ludique et stimulante.
+L'objectif de ce projet était de développer nos compétences en programmation Java tout en créant des jeux divertissants et interactifs. Chaque jeu a été conçu avec soin par notre équipe pour offrir aux joueurs une expérience ludique et stimulante. 🛠️💡
 
-Explorez les règles de chaque jeu, plongez-vous dans le code et profitez des nombreuses possibilités offertes par la programmation Java avec Swing. Nous espérons que vous apprécierez les jeux que nous avons créés et que vous passerez un bon moment à les découvrir !
+Explorez les règles de chaque jeu, plongez-vous dans le code et profitez des nombreuses possibilités offertes par la programmation Java avec Swing. Nous espérons que vous apprécierez les jeux que nous avons créés et que vous passerez un bon moment à les découvrir ! 🕹️😄
 
 ## Sommaire
 
-1.  [Jeu du + ou -](#jeu-du-+-ou--)
+1.  [Jeu du + ou -](#jeu-du--ou)
 2.  [True Or False](#true-or-false)
 3.  [Jeu du Pendu](#jeu-du-pendu)
 4.  [Snake](#snake)
@@ -20,15 +20,20 @@ Explorez les règles de chaque jeu, plongez-vous dans le code et profitez des no
 Pour accéder aux jeux et lancer le launcher, suivez ces étapes simples :
 
 1.  Clonez ce repository sur votre machine locale en utilisant la commande suivante :
-```bash
-git clone https://github.com/stanthblt/java-minigames
-```
-    
+
+bash
+
+Copy code
+
+`git clone https://github.com/stanthblt/java-minigames` 
+
 2.  Accédez au répertoire du launcher en utilisant la commande :
-    
-```bash
-cd java-minigames
-```
+
+bash
+
+Copy code
+
+`cd java-minigames` 
 
 ## Jeux Disponibles
 
@@ -87,15 +92,19 @@ cd java-minigames
 
 Pour lancer le launcher et accéder au menu des jeux, exécutez la commande suivante à partir du répertoire racine du projet :
 
-```bash
-```
+bash
+
+Copy code
 
 ## Contact
 
 Si vous rencontrez des problèmes avec le launcher ou si vous avez des questions, n'hésitez pas à contacter
 
-- [CHAILLOU Quentin 🧑](https://github.com/Deyykoo)
+-   [CHAILLOU Quentin 🧑](https://github.com/Deyykoo)
+    
+-   [DUFOUR Ethan 🧑](https://github.com/Wasteque)
+    
+-   [THABAULT Stanislas 🧑](https://github.com/stanthblt)
+    
 
-- [DUFOUR Ethan 🧑](https://github.com/Wasteque)
-
-- [THABAULT Stanislas 🧑](https://github.com/stanthblt)
+📧👨‍💻
