@@ -23,6 +23,7 @@ public class Pendu extends JFrame implements ActionListener {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         connecterBaseDonnees();
+        initialiserJeu();
 
         JPanel panel = new JPanel(new GridLayout(6, 1));
 
@@ -196,8 +197,15 @@ public class Pendu extends JFrame implements ActionListener {
         initialiserJeu();
     }
 
+    public void startGame() {
+        SwingUtilities.invokeLater(() -> {
+            new Pendu();
+        });
+    }
+
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(Pendu::new);
+        Pendu pendu = new Pendu();
+        pendu.startGame();
     }
 }
 
