@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class trueorfalse extends JFrame {
+public class TrueOrFalse extends JFrame {
 
     private JLabel questionLabel;
     private JButton trueButton;
@@ -21,7 +21,6 @@ public class trueorfalse extends JFrame {
             "quentinou est trop chou", 
             "Louis 14 etait le plus puissant roi de france",
             "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAa"
-
     };
 
     private boolean[] answers = {
@@ -39,33 +38,26 @@ public class trueorfalse extends JFrame {
     private int totalQuestions;
     private int currentQuestionIndex;
 
-    public trueorfalse() {
+    public TrueOrFalse() {
         super("True or False");
-
-        
         random = new Random();
         askedQuestions = new ArrayList<>();
         score = 0;
         totalQuestions = questions.length;
 
-        
         questionLabel = new JLabel();
-        trueButton = new JButton("Vrais");
+        trueButton = new JButton("Vrai");
         falseButton = new JButton("Faux");
         resultLabel = new JLabel("");
         scoreLabel = new JLabel("Score: 0/" + totalQuestions);
 
-        
         setLayout(new GridLayout(5, 1));
-        
-        
         add(questionLabel);
         add(trueButton);
         add(falseButton);
         add(resultLabel);
         add(scoreLabel);
 
-        
         trueButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -80,23 +72,16 @@ public class trueorfalse extends JFrame {
             }
         });
 
-        
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(400, 250);
-        setVisible(true);
-
-        
-        askNewQuestion();
     }
 
     private void askNewQuestion() {
-       
         int newQuestionIndex;
         do {
             newQuestionIndex = random.nextInt(questions.length);
         } while (askedQuestions.contains(newQuestionIndex));
 
-       
         currentQuestionIndex = newQuestionIndex;
         questionLabel.setText(questions[currentQuestionIndex]);
         askedQuestions.add(currentQuestionIndex);
@@ -112,25 +97,25 @@ public class trueorfalse extends JFrame {
             resultLabel.setText("Incorrect...");
         }
 
-        
         scoreLabel.setText("Score: " + score + "/" + totalQuestions);
 
-        
         if (askedQuestions.size() == totalQuestions) {
             JOptionPane.showMessageDialog(this, "Félicitations ! Vous avez terminé le jeu avec un score de " + score + "/" + totalQuestions + " !");
             System.exit(0);
         } else {
-            
             askNewQuestion();
         }
     }
 
+    public void startGame() {
+        setVisible(true);
+        askNewQuestion();
+    }
+    
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                new trueorfalse();
-            }
+        SwingUtilities.invokeLater(() -> {
+            TrueOrFalse game = new TrueOrFalse();
+            game.startGame();
         });
     }
 }

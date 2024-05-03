@@ -70,6 +70,19 @@ public class SnakeGame extends JPanel implements ActionListener, KeyListener {
         draw(g);
     }
 
+    public static void startGame() {
+        JFrame frame = new JFrame("Snake Game");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.getContentPane().add(new SnakeGame(400, 400));
+        frame.pack();
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
+    }
+
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(SnakeGame::startGame);
+    }
+
     public void draw(Graphics g) {
         g.setColor(Color.red); 
         g.fill3DRect(food.x*tileSize, food.y*tileSize, tileSize, tileSize, true);
