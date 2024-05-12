@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class GameLauncher extends JFrame {
+    private static GameLauncher instance;
 
     public GameLauncher() {
         super("Game Launcher");
@@ -13,27 +14,18 @@ public class GameLauncher extends JFrame {
         JButton snakeGameButton = new JButton("Jouer à Snake Game");
         JButton plusOuMoinsButton = new JButton("Jouer à Plus ou Moins");
         JButton trueOrFalseButton = new JButton("Jouer à True or False");
-        JButton penduButton = new JButton("Jouer au Pendu");
         JButton exitButton = new JButton("Quitter");
 
         flappyBirdButton.addActionListener(e -> FlappyBird.startGame());
         snakeGameButton.addActionListener(e -> SnakeGame.startGame());
         plusOuMoinsButton.addActionListener(e -> PlusOuMoins.startGame());
-        trueOrFalseButton.addActionListener(e -> {
-            TrueOrFalse trueOrFalse = new TrueOrFalse();
-            trueOrFalse.startGame();
-        });
-        penduButton.addActionListener(e -> {
-            Pendu pendu = new Pendu();
-            pendu.startGame();
-        });
+        trueOrFalseButton.addActionListener(e -> TrueOrFalse.getInstance().startGame());
         exitButton.addActionListener(e -> System.exit(0));
 
         add(flappyBirdButton);
         add(snakeGameButton);
         add(plusOuMoinsButton);
         add(trueOrFalseButton);
-        add(penduButton);
         add(exitButton);
 
         setLocationRelativeTo(null);
@@ -41,6 +33,15 @@ public class GameLauncher extends JFrame {
     }
 
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(GameLauncher::new);
+        SwingUtilities.invokeLater(() -> {
+            getInstance().setVisible(true);
+        });
+    }
+
+    public static GameLauncher getInstance() {
+        if (instance == null) {
+            instance = new GameLauncher();
+        }
+        return instance;
     }
 }

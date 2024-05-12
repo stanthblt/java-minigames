@@ -51,10 +51,10 @@ public class FlappyBird extends JPanel implements ActionListener, KeyListener, M
     }
 
     private void loadImages() {
-        backgroundImg = new ImageIcon(getClass().getResource("./flappybirdbg.png")).getImage();
-        birdImg = new ImageIcon(getClass().getResource("./flappybird.png")).getImage();
-        topPipeImg = new ImageIcon(getClass().getResource("./toppipe.png")).getImage();
-        bottomPipeImg = new ImageIcon(getClass().getResource("./bottompipe.png")).getImage();
+        backgroundImg = new ImageIcon(getClass().getResource("./src/flappybirdbg.png")).getImage();
+        birdImg = new ImageIcon(getClass().getResource("./src/flappybird.png")).getImage();
+        topPipeImg = new ImageIcon(getClass().getResource("./src/toppipe.png")).getImage();
+        bottomPipeImg = new ImageIcon(getClass().getResource("./src/bottompipe.png")).getImage();
     }
 
     private void placePipes() {
@@ -240,23 +240,29 @@ public class FlappyBird extends JPanel implements ActionListener, KeyListener, M
         Object[] options = {"Quitter", "Voir le Scoreboard", "Jouer"};
         int response = JOptionPane.showOptionDialog(null, "Bienvenue dans Flappy Bird", "Menu Principal",
                 JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, options, options[0]);
-    
-        if (response == 0) {           
-            System.exit(0);
-        } else if (response == 1) {    
+
+        if (response == 0) {
+            GameLauncher.getInstance().setVisible(true);
+            if (mainFrame != null) {
+                mainFrame.dispose();
+            }
+        } else if (response == 1) {
             showScoreboard();
-        } else if (response == 2) {    
+        } else if (response == 2) {
             startGame();
         }
     }
 
     public static void startGame() {
-        mainFrame = new JFrame("Flappy Bird");
-        mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        mainFrame.getContentPane().add(new FlappyBird());
-        mainFrame.pack();
-        mainFrame.setLocationRelativeTo(null);
+        if (mainFrame == null) {
+            mainFrame = new JFrame("Flappy Bird");
+            mainFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+            mainFrame.getContentPane().add(new FlappyBird());
+            mainFrame.pack();
+            mainFrame.setLocationRelativeTo(null);
+        }
         mainFrame.setVisible(true);
+        GameLauncher.getInstance().setVisible(false);
     }
 
     private static void displayMainMenu() {
@@ -270,7 +276,10 @@ public class FlappyBird extends JPanel implements ActionListener, KeyListener, M
                 JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, options, options[0]);
     
         if (response == 0) {           
-            System.exit(0);
+            GameLauncher.getInstance().setVisible(true);
+            if (mainFrame != null) {
+                mainFrame.dispose();
+            }
         } else if (response == 1) {    
             showScoreboard();
         } else if (response == 2) {    

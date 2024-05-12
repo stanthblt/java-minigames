@@ -89,6 +89,10 @@ cd java-minigames
 Pour lancer le launcher et accéder au menu des jeux, exécutez la commande suivante à partir du répertoire racine du projet :
 
 ```bash
+javac GameLauncher.java
+```
+```bash
+java GameLauncher
 ```
 
 ## Contact

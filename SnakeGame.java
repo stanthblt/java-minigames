@@ -1,8 +1,8 @@
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.ArrayList;
 import java.util.Random;
-import javax.swing.*;
 
 public class SnakeGame extends JPanel implements ActionListener, KeyListener {
     private class Tile {
@@ -72,15 +72,11 @@ public class SnakeGame extends JPanel implements ActionListener, KeyListener {
 
     public static void startGame() {
         JFrame frame = new JFrame("Snake Game");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // Change to DISPOSE_ON_CLOSE
         frame.getContentPane().add(new SnakeGame(400, 400));
         frame.pack();
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
-    }
-
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(SnakeGame::startGame);
     }
 
     public void draw(Graphics g) {
@@ -171,7 +167,9 @@ public class SnakeGame extends JPanel implements ActionListener, KeyListener {
             velocityY = 0;
             gameLoop.start();
         } else {
-            System.exit(0);
+            GameLauncher.getInstance().setVisible(true); // Return to GameLauncher
+            JFrame frame = (JFrame) SwingUtilities.getWindowAncestor(this);
+            frame.dispose(); // Close the SnakeGame window
         }
     }
 
